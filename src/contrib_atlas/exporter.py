@@ -76,13 +76,19 @@ def render_markdown(data: dict[str, Any]) -> str:
             "",
             "## Repositories",
             "",
-            "| Repository | Ownership | Actions | Commits | PRs opened | PRs merged | Issues opened | Issues closed | Language |",
+            (
+                "| Repository | Ownership | Actions | Commits | PRs opened | PRs merged | "
+                "Issues opened | Issues closed | Language |"
+            ),
             "|---|---|---:|---:|---:|---:|---:|---:|---|",
         ]
     )
     for repository in data["repositories"]:
         lines.append(
-            "| [{name}]({url}) | {ownership} | {actions} | {commits} | {pro} | {prm} | {io} | {ic} | {language} |".format(
+            (
+                "| [{name}]({url}) | {ownership} | {actions} | {commits} | {pro} | "
+                "{prm} | {io} | {ic} | {language} |"
+            ).format(
                 name=repository["full_name"],
                 url=repository["html_url"],
                 ownership=repository["ownership"],
@@ -96,12 +102,13 @@ def render_markdown(data: dict[str, Any]) -> str:
             )
         )
 
+    completeness = "yes" if data["data_quality"]["is_complete"] else "no"
     lines.extend(
         [
             "",
             "## Data Quality",
             "",
-            f"Complete within configured limits: **{'yes' if data['data_quality']['is_complete'] else 'no'}**",
+            f"Complete within configured limits: **{completeness}**",
             "",
         ]
     )

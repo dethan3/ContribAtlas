@@ -160,8 +160,14 @@ def build_report(
             "notes": [
                 "GitHub search exposes at most 1,000 results per search query.",
                 "Private contributions are visible only when the supplied token can access them.",
-                "Language percentages are weighted by activity actions and use each repository's primary language; they are not code-line percentages.",
-                "Lifecycle actions are counted separately, so one PR may contribute both an opened and a merged action.",
+                (
+                    "Language percentages are weighted by activity actions and use each "
+                    "repository's primary language; they are not code-line percentages."
+                ),
+                (
+                    "Lifecycle actions are counted separately, so one PR may contribute "
+                    "both an opened and a merged action."
+                ),
             ],
         },
     )

@@ -10,9 +10,9 @@ import typer
 from contrib_atlas.analyzer import build_report
 from contrib_atlas.client import (
     DEFAULT_API_BASE_URL,
+    SEARCH_RESULT_HARD_LIMIT,
     GitHubAPIError,
     GitHubClient,
-    SEARCH_RESULT_HARD_LIMIT,
 )
 from contrib_atlas.exporter import write_json, write_markdown
 
@@ -84,7 +84,10 @@ def analyze(
     )
     if not token:
         typer.echo(
-            "No GITHUB_TOKEN/GH_TOKEN detected; public data will use GitHub's lower unauthenticated rate limit.",
+            (
+                "No GITHUB_TOKEN/GH_TOKEN detected; public data will use GitHub's "
+                "lower unauthenticated rate limit."
+            ),
             err=True,
         )
 
