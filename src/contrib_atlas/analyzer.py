@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from collections import Counter, defaultdict
+from collections import Counter
 from dataclasses import asdict
 from datetime import date
-from typing import Any, Iterable
+from typing import Any
 
 from contrib_atlas.client import unique_by_id
 from contrib_atlas.models import CollectionResult, ContributionReport
