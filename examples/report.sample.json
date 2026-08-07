@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-07T07:00:00+00:00",
+  "period": {
+    "requested_days": 7,
+    "start_date": "2026-08-01",
+    "end_date": "2026-08-07",
+    "timezone": "UTC",
+    "date_range_semantics": "inclusive UTC calendar dates"
+  },
+  "user": {
+    "login": "octocat"
+  },
+  "summary": {
+    "unique_repositories": 2,
+    "commits": 12,
+    "pull_requests_opened": 2,
+    "pull_requests_merged": 1,
+    "issues_opened": 1,
+    "issues_closed": 1,
+    "total_activity_actions": 17
+  },
+  "distributions": {},
+  "repositories": [],
+  "records": {},
+  "data_quality": {
+    "is_complete": true,
+    "truncated_searches": []
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dethan3/ContribAtlas/schemas/report.schema.json",
+  "title": "ContribAtlas Report",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "generated_at",
+    "period",
+    "user",
+    "summary",
+    "distributions",
+    "repositories",
+    "records",
+    "data_quality"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "period": {
+      "type": "object",
+      "required": ["requested_days", "start_date", "end_date", "timezone"],
+      "properties": {
+        "requested_days": { "type": "integer", "minimum": 1, "maximum": 180 },
+        "start_date": { "type": "string", "format": "date" },
+        "end_date": { "type": "string", "format": "date" },
+        "timezone": { "const": "UTC" },
+        "date_range_semantics": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "user": { "type": "object" },
+    "summary": { "type": "object" },
+    "distributions": { "type": "object" },
+    "repositories": { "type": "array", "items": { "type": "object" } },
+    "records": {
+      "type": "object",
+      "required": [
+        "commits",
+        "pull_requests_opened",
+        "pull_requests_merged",
+        "issues_opened",
+        "issues_closed"
+      ],
+      "properties": {
+        "commits": { "type": "array", "items": { "type": "object" } },
+        "pull_requests_opened": { "type": "array", "items": { "type": "object" } },
+        "pull_requests_merged": { "type": "array", "items": { "type": "object" } },
+        "issues_opened": { "type": "array", "items": { "type": "object" } },
+        "issues_closed": { "type": "array", "items": { "type": "object" } }
+      },
+      "additionalProperties": false
+    },
+    "data_quality": { "type": "object" }
+  },
+  "additionalProperties": false
+}
