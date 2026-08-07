@@ -56,8 +56,21 @@ The token is read only from the environment; it is not accepted as a CLI argumen
 
 ## Usage
 
+General form:
+
 ```bash
-catlas analyze luojiyin1987 --days 7
+catlas analyze [github_id] --days [time]
+```
+
+Parameters:
+
+- `[github_id]`: the GitHub username/login to analyze, for example `dethan3`. Use the account ID that appears in a profile URL such as `github.com/dethan3`.
+- `[time]`: the lookback period. **Currently this is an integer number of days only**, from `1` to `180`. Hours (`12h`) and weeks (`2w`) are not currently accepted; use the equivalent number of days instead.
+
+Example:
+
+```bash
+catlas analyze dethan3 --days 7
 ```
 
 Options:
@@ -71,10 +84,10 @@ Options:
 --api-base-url URL
 ```
 
-Example:
+A more complete example:
 
 ```bash
-catlas analyze luojiyin1987 \
+catlas analyze dethan3 \
   --days 30 \
   --format both \
   --output-dir output
@@ -84,8 +97,8 @@ Outputs:
 
 ```text
 output/
-├── luojiyin1987-2026-07-09-2026-08-07.json
-└── luojiyin1987-2026-07-09-2026-08-07.md
+├── dethan3-2026-07-09-2026-08-07.json
+└── dethan3-2026-07-09-2026-08-07.md
 ```
 
 ## JSON contract
