@@ -30,6 +30,13 @@ This project is primarily a data collection and transformation pipeline. Python 
 
 ## Installation
 
+The development interpreter is Python 3.13.17 (see `.python-version`); the
+library retains Python 3.11+ compatibility. Existing environments need pip
+26.2.2 or later and certifi 2026.10.19 or later. Before the first installation,
+use the hash-verified pip bootstrap command in `.github/workflows/ci.yml`.
+Keep OS CA certificates updated; installing this project does not update
+separately installed pip or uv (uv must be 0.13.4 or later if used).
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
